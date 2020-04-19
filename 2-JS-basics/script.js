@@ -232,24 +232,120 @@ if (age < 13) {
 */
 
 /*******************************
-* The Ternary Operator and switch statements
+* The Ternary(conditional) Operator and switch statements
+allows if/else statements in one line
+*/
+/*
+var firstName = 'John';
+var age = 22;
+
+//ternary means 3 parts: condition,if block, else block
+age >= 18 ? console.log(firstName + ' drinks beer.') : console.log(firstName + ' drinks juice');
+
+var drink = age >= 18 ? 'beer' : 'juice';
+console.log(drink);
+
+//one line conditional is great. the alternative is below
+/*if (age >= 18) {
+    var drink = 'beer';
+} else {
+    var drink = 'juice';
+}
+console.log(drink);*/
+/*
+// Switch Statement
+var job = 'instructor';
+switch (job) {
+    case 'teacher':
+    case 'instructor':    
+        console.log(firstName + ' teaches kids how to code');
+        break;
+    case 'driver':
+        console.log(firstName + ' drives an uber in lisbon');
+        break;
+    case 'designer':
+        console.log(firstName + ' designs websites for a company');
+        break;
+    default:
+        console.log(firstName + ' does something else');
+}
+
+// to make switch statement work with ranges of > or < statements you can set switch (true) {...}
+
 */
 
+/*******************************
+* Truthy and Falsy values and equality operators
+*/
+/*
+
+// falsy values: undefined, null, 0, '',NaN
+// truthy values: NOT falsy values
+
+// notice that 0 is a falsy value so we must be careful when our variables are zero
+
+var height;
+height=23;
+
+if (height || height === 0) {
+    console.log('variable is defined');
+} else {
+    console.log('variable has NOT been defined');
+}
+
+// == does type coercion
+if (height == '23') {
+    console.log('The == operator does type coercion!');
+}
+
+*/
+
+/*******************************
+* Coding Challenge #2
+*/
+/*
+
+var johnScore, markScore;
+johnScore = (89 + 120 + 103)/3;
+markScore = (116 + 94 + 123)/3;
+console.log(johnScore, markScore);
 
 
+johnScore > markScore ? console.log('john wins with ' + johnScore + ' points!') : console.log('mark wins with ' + markScore + ' points!');
+
+if (johnScore > markScore) {
+    console.log('john wins with ' + johnScore + ' points!');
+} else if (markScore > johnScore) {
+    console.log('mark wins with ' + markScore + ' points!');
+} else {
+    console.log('The score is tied! there is a draw at ' + johnScore + ' points');
+}
+
+var maryScore = (97 + 134 + 105)/3;
+
+if (johnScore > markScore && johnScore > maryScore) {
+    console.log('john wins with ' + johnScore + ' points!');
+} else if (markScore > johnScore && markScore > maryScore) {
+    console.log('mark wins with ' + markScore + ' points!');
+} else if (maryScore > johnScore && maryScore > markScore) {
+    console.log('mary wins with ' + maryScore + ' points!');
+} else {
+    console.log('The score is tied! there is a draw at ' + johnScore + ' points');
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+switch (true) {
+    case johnScore > markScore && johnScore > maryScore:  
+        console.log('john wins');
+        break;
+    case markScore > johnScore && markScore > maryScore:
+        console.log('mark wins');
+        break;
+    case maryScore > johnScore && maryScore > markScore:
+        console.log('mary wins');
+        break;
+    default:
+        console.log('it is a tie!');
+}
+*/
 
