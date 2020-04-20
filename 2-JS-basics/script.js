@@ -349,3 +349,133 @@ switch (true) {
 }
 */
 
+/*******************************
+* FUNCTIONS
+*/
+/*
+function calculateAge(birthYear) {
+    return 2018-birthYear;
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1948);
+var ageJane = calculateAge(1969);
+console.log(ageJohn,ageMike,ageJane);
+
+function yearsUntilRetirement(year, firstName) {
+    var age = calculateAge(year);
+    var retirement = 65 - age;
+    
+    if (retirement > 0) {
+        console.log(firstName + ' retires in ' + retirement + ' years.');
+    } else {
+        console.log(firstName + ' is already retired');
+    }
+    
+}
+
+yearsUntilRetirement(1990,'John');
+yearsUntilRetirement(1969,'Mike');
+yearsUntilRetirement(1945,'Jane');
+*/
+
+/*******************************
+* FUNCTION Statements and Expressions
+*/
+/*
+//Function declation
+//function whatDoYouDo(job,firstName) {}
+
+//Function expression
+var whatDoYouDo = function(job, firstName) {
+    switch(job) {
+        case 'teacher':
+            return firstName + ' teaches kids to code';
+        case 'driver':
+            return firstName + ' drives a schoolbus';
+        case 'designer':
+            return firstName + ' designs websites';
+        default:
+            return firstName + ' does something else';
+    }
+}
+
+// Note that return will immediatedly return the value so BREAK is not needed in the switch statement
+
+console.log(whatDoYouDo('teacher','John'));
+console.log(whatDoYouDo('designer','mark'));
+console.log(whatDoYouDo('retired','Jane'));
+
+
+//expressions always produce a value
+//statements perform actions and don't produce immediate results (like if else statements)
+*/
+
+/*******************************
+* Arrays
+*/
+/*
+//initialize new array
+var names = ['John', 'mark', 'jane'];
+var years = new Array(1990,1969,1948);
+
+console.log(names);
+console.log(names.length);
+console.log(names[2]);
+
+//mutate array data
+names[1] = 'Ben';
+names[names.length] = 'mary';
+names[5] = 'gary';
+console.log(names);
+
+//different data types
+var john = ['john','smith',1990,'teacher',false];
+
+john.push('blue');
+john.unshift('Mr.');
+console.log(john);
+
+john.pop();
+john.shift();
+console.log(john);
+
+
+console.log(john.indexOf(1990));
+
+console.log(john.indexOf('designer'));
+
+var isDesigner = john.indexOf('designer') === -1 ? 'John is not a designer' : 'John is a designer';
+
+console.log(isDesigner);
+
+//'designer' is not in the array so it returns -1 because it is NOT in the array
+
+*/
+
+
+var tip = function(subtotal) {
+    if (subtotal > 200) {
+        return subtotal * 0.1;
+    } else if (subtotal > 50) {
+        return subtotal * 0.15;
+    } else {
+        return subtotal * 0.2;
+    }
+};
+
+
+console.log(tip(250));
+
+var bills = [124,48,268];
+var tips = [tip(bills[0]),
+           tip(bills[1]),
+           tip(bills[2])];
+
+console.log(tips);
+
+var totals = [bills[0] + tips[0],
+             bills[1] + tips[1],
+             bills[2] + tips[2]];
+
+console.log(totals);
