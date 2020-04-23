@@ -453,6 +453,10 @@ console.log(isDesigner);
 
 */
 
+/*******************************
+* Coding Challenge 3
+*/
+/*
 
 var tip = function(subtotal) {
     if (subtotal > 200) {
@@ -479,3 +483,113 @@ var totals = [bills[0] + tips[0],
              bills[2] + tips[2]];
 
 console.log(totals);
+*/
+/*******************************
+* Objects and properties
+*/
+/*
+//unlike in arrays, order doesn't really matter in objects. objects deal with key value pairs
+
+//object literal
+var john = {
+    firstName: 'john',
+    lastName: 'smith',
+    birthYear: '1990',
+    family: ['jane','mark','bob','emily'],
+    job: 'teacher',
+    isMarried: false
+};
+//notice you can even put an array inside the object (ex family)
+
+console.log(john);
+//use dot notation to access values within john
+console.log(john.firstName);
+console.log(john.family[2]);
+console.log(john['lastName']);
+var x = 'birthYear';
+console.log(john[x]);
+
+//mutate the data
+john.job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+
+//new object syntax
+var jane = new Object();
+    jane.firstName = 'Jane',
+    jane.lastName = 'smith',
+    jane.birthYear = '1969';
+
+console.log(jane);
+*/
+
+/*******************************
+* Objects and methods
+*/
+//we can also attach functions to objects
+/*
+//object literal
+var john = {
+    firstName: 'john',
+    lastName: 'smith',
+    birthYear: '1992',
+    family: ['jane','mark','bob','emily'],
+    job: 'teacher',
+    isMarried: false,
+    //calcAge: function(birthYear) {
+    calcAge: function() {
+        //return 2018 - birthYear;
+        //return 2018 - this.birthYear;
+        this.age = 2018 - this.birthYear;
+    }
+};
+
+//console.log(john.calcAge(1990));
+console.log(john.calcAge());
+
+//An object has a special THIS keyword that points to itself. using THIS.xxxx you can call the property in the CURRENT object ie this.birthYear means john.birthYear
+
+//set the property based on the result
+//john.age = john.calcAge();
+console.log(john);
+*/
+/*******************************
+* Coding Challenge 4
+*/
+
+var john = {
+    firstName: 'john',
+    lastName: 'baptist',
+    mass: 100,
+    height: 1.80,
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height * this.height);
+    }
+};
+
+var mark = {
+    firstName: 'mark',
+    lastName: 'clark',
+    mass: 66,
+    height: 1.73,
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height * this.height);
+        return this.BMI;
+    }
+};
+
+//john.calcBMI();
+//mark.calcBMI();
+
+//note that you have to call the function for the assigned value within the function to be stored as a property.
+console.log(john, mark);
+
+//you can calculate the BMI and use it in one go by calling the calcBMI func inside of the if statement. this way you don't have to call the calcBMI beforehand in order to access .BMI. Now the BMI property is accessible already.
+if (john.calcBMI() > mark.calcBMI()) {
+//if (john.BMI > mark.BMI) {
+    console.log(john.firstName + ' has a higher BMI of ' + john.BMI);
+} else if (mark.BMI > john.BMI) {
+    console.log(mark.firstName + ' has a higher BMI of ' + mark.BMI);
+} else {
+    console.log(mark.firstName + ' and ' + john.firstName + ' have the same BMI of ' + john.BMI);
+}
