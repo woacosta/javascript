@@ -556,7 +556,7 @@ console.log(john);
 /*******************************
 * Coding Challenge 4
 */
-
+/*
 var john = {
     firstName: 'john',
     lastName: 'baptist',
@@ -592,4 +592,58 @@ if (john.calcBMI() > mark.calcBMI()) {
     console.log(mark.firstName + ' has a higher BMI of ' + mark.BMI);
 } else {
     console.log(mark.firstName + ' and ' + john.firstName + ' have the same BMI of ' + john.BMI);
+}
+*/
+
+/*******************************
+* Loops and iteration
+*/
+
+// for loops have 3 parts: initial count variable, condition, counter
+/*
+for (var i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+for (var i = 0; i < 10; i+=2) {
+    console.log(i);
+}
+
+
+var john = ['john', 'smith', 1990, 'designer', false];
+for (var i = 0; i < john.length; i++) {
+    console.log(john[i]);
+}
+
+var i = 0;
+while(i < john.length) {
+    console.log(john[i]);
+    i++;
+}
+*/
+
+//continue and break statements
+
+//continue skips the elements that don't match the condition
+var john = ['john', 'smith', 1990, 'designer', false, 'blue'];
+for (var i = 0; i < john.length; i++) {
+    //note that you can write the simple if statement without putting the action in curly braces
+    if (typeof john[i] !== 'string') continue;
+    console.log(john[i]);
+}
+
+//break permanently exits the string once a mismatch is found
+var john = ['john', 'smith', 1990, 'designer', false, 'blue'];
+for (var i = 0; i < john.length; i++) {
+    //note that you can write the simple if statement without putting the action in curly braces
+    if (typeof john[i] !== 'string') break;
+    console.log(john[i]);
+}
+
+//looping backwards
+var john = ['john', 'smith', 1990, 'designer', false, 'blue'];
+for (var i = john.length - 1; i >= 0; i--) {
+    //note that you can write the simple if statement without putting the action in curly braces
+    if (typeof john[i] !== 'string') continue;
+    console.log(john[i]);
 }
