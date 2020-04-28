@@ -625,6 +625,7 @@ while(i < john.length) {
 //continue and break statements
 
 //continue skips the elements that don't match the condition
+/*
 var john = ['john', 'smith', 1990, 'designer', false, 'blue'];
 for (var i = 0; i < john.length; i++) {
     //note that you can write the simple if statement without putting the action in curly braces
@@ -647,3 +648,73 @@ for (var i = john.length - 1; i >= 0; i--) {
     if (typeof john[i] !== 'string') continue;
     console.log(john[i]);
 }
+*/
+
+/*******************************
+* CODING CHALLENGE 5
+*/
+/*
+var john = {
+    name: 'john smith',
+    subTotal: [124,48,268,180,42],
+    //calcAge: function(birthYear) {
+    calcTip: function() {
+        this.tip = [];
+        this.total = [];
+        for (var i=0;i<this.subTotal.length;i++) {
+            var percentage;
+            var bill = this.subTotal[i];
+            
+            if (bill < 50){
+                percentage = 0.2;
+            } else if (bill >= 100 && bill < 200) {
+                percentage = 0.15;
+            } else {
+                percentage = 0.1;
+            }
+            this.tip[i] = bill * percentage;
+            this.total[i] = bill + this.tip[i];
+        }
+    }
+};
+john.calcTip();
+console.log(john);
+
+var mark = {
+    name: 'mark miller',
+    subTotal: [77,475,110,45],
+    //calcAge: function(birthYear) {
+    calcTip: function() {
+        this.tip = [];
+        this.total = [];
+        for (var i=0;i<this.subTotal.length;i++) {
+            var percentage;
+            var bill = this.subTotal[i];
+            
+            if (bill < 100){
+                percentage = 0.2;
+            } else if (bill >= 100 && bill < 300) {
+                percentage = 0.1;
+            } else {
+                percentage = 0.25;
+            }
+            this.tip[i] = bill * percentage;
+            this.total[i] = bill + this.tip[i];
+        }
+    }
+};
+mark.calcTip();
+console.log(mark);
+
+function calcAverage(tip) {
+    var sum =0;
+    for (var i=0;i < tip.length;i++) {
+        sum = sum + tip[i];
+    }
+    return sum / tip.length;
+}
+
+mark.average = calcAverage(mark.tip);
+console.log(john,mark);
+*/
+
