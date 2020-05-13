@@ -7,7 +7,7 @@ var john = {
     job: 'teacher'
 };
 */
-
+/*
 // Constuctor function - Person object will be a prototype
 var Person = function(name, yearOfBirth, job) {
     this.name = name;
@@ -36,3 +36,32 @@ var mark = new Person('Mark', 1948, 'retired');
 //the Person object inherited the method from its prototype. the john and jane object instances inherited the property from the Person object.
 jane.calcAge();
 mark.calcAge();
+*/
+/*
+// Object.create - another way to create an object
+var personProto = {
+    calculateAge: function() {
+        console.log(2016 - this.yearOfBirth);
+    }
+};
+
+// use Object.create to say john is an instance of personProto
+var john = Object.create(personProto);
+john.name = 'John';
+john.yearOfBirth = 1969;
+john.job = 'teacher';
+
+// can go further by giving an addtional argument with parameters
+var jane = Object.create(personProto,
+{
+    name: { value: 'Jane' },
+    yearOfBirth: { value: 1969 },
+    job: { value: 'designer' }
+});
+
+//Object.create - builds an object that inherits directly from the one passed in the argument. A function constructor creates a new object that inherits from the constructor's prototype property
+
+*/
+
+// Primatives vs objects
+
