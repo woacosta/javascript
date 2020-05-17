@@ -141,7 +141,7 @@ console.log(rates);
 */
 
 //*********Functions returning functions***********//
-
+/*
 function interviewQuestion(job) {
     if (job === 'designer') {
         return function(name) {
@@ -162,3 +162,100 @@ var teacherQ = interviewQuestion('teacher');
 teacherQ('John');
 
 interviewQuestion('teacher')('mark');
+*/
+
+//*********Immediately Invoked Function Expression: IIFE ***********//
+
+//What is inside of parantheses cannot be a statement. An IIFE wraps the function in parentheses to allow it to be treated as an expression and NOT a declaration.
+/*
+function game() {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+
+game();
+*/
+
+//Use an IIFE to make an anonymous function that is unnamed and is called right away to have the same effect as function above which is hiding the score to the outside scope.
+/*
+(function () {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})();
+// can't see score because it is only accessible to the function
+//console.log(score);
+
+(function (goodLuck) {
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+})(5);
+*/
+//*********Closures ***********//
+/*
+function retirement(retirementAge) {
+    var a = ' years left until retirement';
+    return function(yearOfBirth) {
+        var age = 2016 - yearOfBirth;
+        console.log((retirementAge - age) + a);
+    }
+}
+
+retirement(66)(1990);
+
+var retirementUS = retirement(66);
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
+
+retirementUS(1990);
+retirementGermany(1990);
+retirementIceland(1990);
+
+function InterviewQuestion(job) {
+    return function(name) {
+        if (job === 'designer') {
+            console.log(name + ', can you explain what UX design is?');
+        } else if (job === 'teacher') {
+        console.log(name + ', what subject do you teach?');
+        } else {
+        console.log('hello, ' + name + ', what do you do?');
+        } 
+    }
+}
+
+InterviewQuestion('teacher')('john');
+
+teacherQ = InterviewQuestion('teacher');
+teacherQ('John');
+*/
+
+//********* Lecture: Bind, call, and apply ***********//
+
+var john = {
+    name: 'John',
+    age: 26,
+    job: 'teacher',
+    presentation: function(style, timeOfDay) {
+        if (style === 'formal') {
+            console.log('Good ' + timeOfDay + ', Ladies and gentlemen! I\'m ' +  this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.');
+        } else if (style === 'friendly') {
+            console.log('Hey! What\'s up? I\'m ' +  this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '.');
+        }
+    }
+};
+
+var emily = {
+    name: 'Emily',
+    age: 35,
+    job: 'designer'
+};
+
+john.presentation('formal', 'morning');
+//method borrowing
+john.presentation.call(emily, 'friendly', 'afternoon');
+
+//apply method is similar except it only takes two arguments and the second one is an array of the arguments of the method. note that it doesn't work here because the presentation method doesn't accept an array input!
+//john.presentation.apply(emily, ['friendly','afternoon']);
+
+var johnFriendly = john.presentation.bind(john, 'friendly');
+johnFriendly('morning');
+johnFriendly('night');
